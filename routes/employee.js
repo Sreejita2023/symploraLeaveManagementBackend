@@ -20,7 +20,7 @@ employeeRouter.get("/profile", EmployeeAuth, async (req, res) => {
   }
 });
 
-employeeRouter.get("/leave/request",EmployeeAuth, async (req, res) => {
+employeeRouter.get("/requestedLeave",EmployeeAuth, async (req, res) => {
     try {
         const employeeId = req.employee._id;
         const leave =await Leave.find({
@@ -33,10 +33,9 @@ employeeRouter.get("/leave/request",EmployeeAuth, async (req, res) => {
       console.log("error", error);
       res.status(400).send("error message", error.message);
     }
-
 })
 
-employeeRouter.get("/leave/review", EmployeeAuth, async (req, res) => {
+employeeRouter.get("/reviewedLeave", EmployeeAuth, async (req, res) => {
   try {
     const employeeId = req.employee._id;
     const leave = await Leave.find({

@@ -18,13 +18,10 @@ managerRouter.post("/employeeAdd",ManagerAuth, async (req, res) => {
           managerId:manager._id
       }) 
       const savedEmployee=await employee.save()
-      const token = await savedEmployee.getJWT()
+
       manager.employees.push(savedEmployee._id)
       const savedManager=await manager.save()
       console.log("saved",savedManager.employees)
-      res.cookie("token", token, {
-        expires: new Date(Date.now() + 8 * 3600000),
-      });
       res.json({message:"Employee added sucessfully",data:savedEmployee})
   } catch (error) {
     console.log("error", error);
