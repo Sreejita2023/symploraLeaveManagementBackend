@@ -28,7 +28,7 @@ app.use("/", employeeRouter);
 
 const connectDb = require("./config/database");
 
-
+const PORT = process.env.PORT || 3000;
 connectDb().then(() => {
     console.log("Database is connected")
     app.listen(process.env.PORT, () => {
