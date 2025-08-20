@@ -9,7 +9,10 @@ app.use(cookieParser())
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://yourdomain.com"], // allowed origins
+    origin: [
+      "http://localhost:3000",
+      "https://symplora-leave-management-frontend.vercel.app/",
+    ], // allowed origins
     methods: ["GET", "POST", "PUT", "DELETE"], // allowed HTTP methods
     credentials: true, // allow cookies/auth headers
   })
