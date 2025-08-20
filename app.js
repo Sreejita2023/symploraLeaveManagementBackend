@@ -4,19 +4,19 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 require("dotenv").config()
 
-app.use(express.json())
-app.use(cookieParser())
-
 app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://symplora-leave-management-frontend.vercel.app/",
+      "https://symplora-leave-management-frontend.vercel.app",
     ], // allowed origins
     methods: ["GET", "POST", "PUT", "DELETE"], // allowed HTTP methods
     credentials: true, // allow cookies/auth headers
   })
 );
+
+app.use(express.json())
+app.use(cookieParser())
 
 const authRouter=require("./routes/auth")
 const managerRouter = require("./routes/manager");
